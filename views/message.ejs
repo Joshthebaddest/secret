@@ -1,0 +1,25 @@
+<%- include("template/header") -%>
+
+<%- include("template/logo") -%>
+    
+    <form class="form" action="" method="post">
+        <div class="head">
+            <h3>Message Board</h3>
+        </div>
+        
+        <div class="mb-3 info-container">
+            <ul class="text">
+                <li>Let's play a game and have fun with <%= name %>.</li>
+                <li>Send your message secretly to <%= name %>.</li>
+                <li><%= name %> will never know who message.</li>
+            </ul>
+
+            <textarea name="message" id="" placeholder="Enter Your Thought"></textarea>
+
+            <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+    </form>
+
+
+
+<%- include("template/footer") -%>

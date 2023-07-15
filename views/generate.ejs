@@ -1,0 +1,20 @@
+<%- include("template/header") -%>
+
+<%- include("template/logo") -%>
+
+<div class="page-container">
+    <div class="head">
+        <h3>Message Board</h3>
+    </div>
+    
+    <div class="mb-3 info-container">
+        <p>Thanks For Your Participation</p>
+        <p>Your Message Sent Successfully!</p>
+        <p>Click on the link below to generate your secret link</p>
+
+        <button class="btn btn-primary"><a href="/">Generate your link</a> </button>
+        <button class="btn btn-primary"><a href=<%= link %>>Send New</a></button>
+    </div>
+</div>
+
+<%- include("template/footer") -%>
