@@ -20,14 +20,14 @@ button a {
 .form, .page-container {
     color: white;
     max-width: 800px;
-    background-image: linear-gradient(to right, rgb(28, 21, 95), rgb(46, 1, 1));
+    background-image: linear-gradient(to right, rgb(28, 21, 95), rgb(46, 1, 1)) no-repeat;
     border: 10px solid blue;
     margin: 100px auto;
     position: relative;
     border-radius: 10px;
 }
 .header {
-    background-image: linear-gradient(to right, rgb(28, 21, 95), rgb(46, 1, 1));
+    background-image: linear-gradient(to right, rgb(28, 21, 95), rgb(46, 1, 1)) no-repeat;
     text-align: center;
     color: white;
     height: 15vh;
@@ -86,7 +86,7 @@ form button, .page-container button, .page-container .info-container button {
 
 /* footer */
 footer{
-    background-image: linear-gradient(to right, rgb(28, 21, 95), rgb(46, 1, 1));
+    background-image: linear-gradient(to right, rgb(28, 21, 95), rgb(46, 1, 1)) no-repeat;
     color: white;
     text-align: center;
     margin-top: 50px;
