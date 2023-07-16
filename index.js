@@ -107,11 +107,11 @@ app.post('/delete', async(req, res) => {
     res.redirect('/')
 });
 
-// let port = process.env.PORT;
-// if(port === null || port === ""){
-//   port = 3000;
-// }
+let port = process.env.PORT;
+if(port === null || port === ""){
+  port = 3000;
+}
 // Start the server
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(`Server is running on port 3000`);
 });
