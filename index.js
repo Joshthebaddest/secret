@@ -2,7 +2,6 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const favicon = require('serve-favicon');
 const { render } = require('ejs');
 
 const app = express();
@@ -10,7 +9,6 @@ const app = express();
 app.set('view engine' ,'ejs')
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(favicon(__dirname + "/public/favicon_io/favicon.ico"));
 
 // mongoose database
 
