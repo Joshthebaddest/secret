@@ -1,8 +1,8 @@
 
 
-@media (min-width: 600px ) {        
+@media (min-width: 500px ) {        
     .header .img-link{
-        margin: 15px 0 0 25px;
+        margin: 10px 15px;
     }
     .header .img-link img{
         max-width: 100px;
@@ -18,10 +18,7 @@
     }
 }
 
-@media (max-width: 400px ) {
-    .header {
-        height: 10vh;
-    }
+@media (max-width: 600px ) {
     .header .img-link{
         margin: 15px 0 0 0;
     }
