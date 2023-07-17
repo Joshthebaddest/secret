@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // mongoose database
 
-mongoose.connect('mongodb+srv://gabrielmarvelous1:Josiah1705@cluster0.d19wtz8.mongodb.net/secretDB', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://<your username>:<your passeord>@cluster0.d19wtz8.mongodb.net/secretDB', {useNewUrlParser: true});
 const userSchema = new mongoose.Schema({
   name: String,
   link: String,
