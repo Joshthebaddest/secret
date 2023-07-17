@@ -25,7 +25,11 @@
             </ul>
 
             <input type="text" name="name" class="textArea" id="exampleInputName" aria-describedby="emailHelp">
-            <div id="nameHelp" class="form-text">We'll never share your name with anyone else.</div>
+            <% if(message !== ""){ %>
+                <span style="color: red; font-size: 12px;"><i><%= message %></i></span>
+            <% } %>
+            
+            <div id="nameHelp" class="form-text" style="color: white;">We'll never share your name with anyone else.</div>
             <input type="checkbox" checked><span>I agree to <a href="">Terms and Codition</a> of website</span>
         
             <button type="submit" class="btn btn-primary">Create your link</button>
