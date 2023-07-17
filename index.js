@@ -38,8 +38,8 @@ app.use(session({
 app.get('/', async (req, res) => {
   const sessionId = req.session.id;
   let foundOne = await secret.find({sessionId}).exec();
-  const url = req.protocol + '://' + req.get('host') + '/secret' + req.originalUrl;
-  const home = req.protocol + '://' + req.get('host');
+  const url = req.protocol + 's' + '://' + req.get('host') + '/secret' + req.originalUrl;
+  const home = req.protocol + 's' + '://' + req.get('host');
 
     if(foundOne.length >= 1){
       let link = `${url}${sessionId}`;
@@ -58,9 +58,9 @@ app.post('/', [check('name').notEmpty().isAlpha('en-US', {ignore : ' '})] , asyn
     const errors = validationResult(req);
     let name = req.body.name;
     const sessionId = req.session.id;
-    const url = req.protocol + '://' + req.get('host') + '/secret' + req.originalUrl;
+    const url = req.protocol + 's' + '://' + req.get('host') + '/secret' + req.originalUrl;
     let link = `${url}${sessionId}`;
-    const home = req.protocol + '://' + req.get('host');
+    const home = req.protocol + 's' + '://' + req.get('host');
     const user = new secret({name, link, sessionId, message: []}); 
     let foundOne = await secret.find({sessionId}).exec();
   if(!errors.isEmpty()){
@@ -84,7 +84,7 @@ app.post('/', [check('name').notEmpty().isAlpha('en-US', {ignore : ' '})] , asyn
 
 app.get('/secret/:sessionId', async(req, res) => {
     const sessionId = req.params.sessionId;
-    const home = req.protocol + '://' + req.get('host');
+    const home = req.protocol + 's' + '://' + req.get('host');
     if(sessionId !== req.session.id){
       const foundOne = await secret.find({sessionId}).exec();
       const getOneUser = foundOne[0];
@@ -102,7 +102,7 @@ app.get('/secret/:sessionId', async(req, res) => {
 app.post('/secret/:sessionId', [check('message').notEmpty()], async(req, res, next) => {
     const errors = validationResult(req);
     const sessionId = req.params.sessionId;
-    const home = req.protocol + '://' + req.get('host');
+    const home = req.protocol + 's' + '://' + req.get('host');
     const myMessage = req.body.message;
     const date = new Date();
     const link = req.url;
@@ -124,7 +124,7 @@ app.post('/secret/:sessionId', [check('message').notEmpty()], async(req, res, ne
 app.post('/delete', async(req, res) => {
     const sessionId = req.session.id;
     const message = req.body.message;
-    const url = req.protocol + '://' + req.get('host') + '/secret/';
+    const url = req.protocol + 's' + '://' + req.get('host') + '/secret/';
     let link = `${url}${sessionId}`;
     const user = await secret.find({sessionId}).exec();
     const newMessage = user[0].message.filter(b => b.message !== message);
