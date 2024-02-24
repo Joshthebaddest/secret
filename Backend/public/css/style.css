@@ -1,0 +1,102 @@
+*{
+    transition: 1s ease-in;
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+h3 {
+    font-size: 20px;
+}
+button a {
+    width: 100%;
+}
+.form, .page-container {
+    color: white;
+    max-width: 800px;
+    background-image: linear-gradient(to right, rgb(28, 21, 95), rgb(46, 1, 1));
+    border: 10px solid blue;
+    margin: 100px auto;
+    position: relative;
+    border-radius: 10px;
+}
+.header {
+    background-image: linear-gradient(to right, rgb(28, 21, 95), rgb(46, 1, 1));
+    text-align: center;
+    color: white;
+    height: 15vh;
+}
+.head {
+    background-color: blue;
+    border-radius: 30px;
+    color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -25px;
+    width: fit-content;
+    padding: 10px;
+}
+.alert {
+    display: none;
+    width: fit-content;
+    height: fit-content;
+    background-color: black;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 9999;
+}
+.info-container{
+    margin: 50px;
+}
+.textArea {
+    height: 40px;
+}
+.textArea:focus {
+    outline: 0;
+}
+.textArea, textarea {
+    width: 100%;
+    background-color: white;
+    color: black;
+}
+textarea {
+    padding: 20px 10px;
+    height: 200px;
+}
+span {
+    margin-left: 5px;
+}
+form button, .page-container button, .page-container .info-container button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* footer */
+footer{
+    background-image: linear-gradient(to right, rgb(28, 21, 95), rgb(46, 1, 1));
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+    padding: 50px 40px;
+}
+footer p {
+    font-size: 15px;
+    text-align: center;
+}
+footer p span {
+    color: white;
+}
+
