@@ -82,7 +82,7 @@ const Home = () => {
                 </div>
             </form>
         </div>
-        : <Link data={data} />}
+        : <Link data={data} setLink={setLink} />}
     </>
 
     )

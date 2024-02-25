@@ -1,10 +1,13 @@
+import { useState } from "react"
 import { Generate, Message } from "../component"
 
 const Secret = () => {
+    const [ getMessage, setGetMessage ] = useState(true)
+
     return(
         <>
-            {/* <Generate /> */}
-            <Message />
+            {!getMessage ? <Generate setGetMessage={setGetMessage} /> :
+            <Message setGetMessage={setGetMessage} />}
         </>
     )
 

@@ -3,15 +3,14 @@ const { validationResult } = require('express-validator');
 
 const getSessionSecret = async(req, res) => {
     const sessionId = req.params.sessionId;
-    if(sessionId !== req.session.id){
-      const foundOne = await secret.findOne({_id: sessionId}).exec();
-      const name = foundOne.name;
-      const message = '';
-       res.status(200).json({name, message});
-    }
-    else{
-      res.redirect("/");
-    }
+    if(sessionId === req.session.id) return res.sendStatus(401);
+    
+    const foundOne = await secret.findOne({_id: sessionId}).exec();
+    const name = foundOne.name;
+    const message = '';
+    res.status(200).json({name, message});
+    
+
 };
 
 // Route to the specific HTML page with the same session ID
@@ -21,9 +20,10 @@ const createSessionSecret = async(req, res, next) => {
     const myMessage = req.body.message;
     const date = new Date();
     
-    if(!errors.isEmpty()) return res.send(422).json({'message': "invalid name field, please enter a valid name "});
+    if(!errors.isEmpty()) return res.status(422).json({'message': "invalid name field, please enter a valid name "});
     try{
-      const foundOne = await secret.findOne({sessionId}).exec();
+      const foundOne = await secret.findOne({_id: sessionId}).exec();
+      console.log(foundOne)
       foundOne.message.push({message: myMessage, date});
       await foundOne.save();
       res.status(200).json({'message': 'message sent'});
@@ -38,7 +38,7 @@ const getSession =  async (req, res) => {
   const sessionId = req.session.id;
   let foundOne = await secret.find({}).exec();
   console.log(foundOne)
-  console.log(req.session.id)
+  console.log(req.session)
   const url = req.protocol + 's' + '://' + req.get('host') + '/secret' + req.originalUrl;
 
   try{
@@ -81,15 +81,15 @@ const createSession = async(req, res, next) => {
     const sessionId = req.session.id;
     const message = req.body.message;
     try{
-      const user = await secret.findOne({sessionId}).exec();
+      const user = await secret.findOne({_id: sessionId}).exec();
       if(!user) return res.sendStatus(404)
 
-      const newMessage = user[0].message.filter(b => b.message !== message);
+      const newMessage = user.message.filter(b => b.message !== message);
 
-      await secret.updateOne({sessionId}, {$set: {message: newMessage}});
-      const newUser = await secret.findOne({sessionId});
-      await newUser[0].save();
-      res.sendStatus(204)
+      await secret.updateOne({_id: sessionId}, {$set: {message: newMessage}});
+      const newUser = await secret.findOne({_id: sessionId});
+      await newUser.save();
+      res.sendStatus(200)
 
     }catch(err){
       res.status(500).json({'message': err.message})
