@@ -20,7 +20,9 @@ const Generate = ({ setGetMessage }) => {
                     <p>Your Message Sent Successfully!</p>
                     <p>Click on the link below to generate your secret link</p>
 
-                    <button className="btn btn-primary"><Link to="/">Generate your link</Link></button>
+                    <button className="btn btn-primary">
+                        <Link to="/">Generate your link</Link>
+                    </button>
                     <button className="btn btn-primary" onClick={setMessage}>Send New</button>
                 </div>
             </div>

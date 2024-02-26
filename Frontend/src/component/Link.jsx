@@ -1,7 +1,8 @@
 import axios from "axios"
 import { useRef, useState } from "react"
+import { Link } from "react-router-dom";
 
-const Link = ({ data, setLink }) => {
+const PageLink = ({ data, setLink }) => {
       // Create a ref to the input element
     const inputRef = useRef(null);
     const {id, message, whatsapp } = data
@@ -69,15 +70,17 @@ const Link = ({ data, setLink }) => {
                     </button>
                     <button style={{backgroundImage: "linear-gradient(to right, rgb(0, 90, 0), rgb(124, 255, 124))"}} className="btn btn-primary">
                         <i className="fa-brands fa-whatsapp mr-3"></i>
-                        <a href={`${whatsapp}${link}${id}`}>share on Whatsapp</a>
+                        <Link to={`${whatsapp}${link}${id}`}> share on Whatsapp </Link>
                     </button>
                     <button style={{backgroundImage: "linear-gradient(to right, rgb(186, 0, 34), rgb(0, 42, 253))"}} className="btn btn-primary">
                         <i className="fa-solid fa-share-nodes mr-3"></i> More To Share
                     </button>
                 </div>
+                
             </div>
+            Lin
         </>
     )
 }
 
-export default Link
+export default PageLink

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link } from "../component"
+import { PageLink } from "../component"
 import axios from 'axios'
 
 const Home = () => {
@@ -78,11 +78,13 @@ const Home = () => {
                     <div id="nameHelp" className="form-text text-white">We'll never share your name with anyone else.</div>
                     <input type="checkbox" defaultChecked /><span>I agree to <a href="">Terms and Codition</a> of website</span>
                 
+                
+
                     <button type="submit" className="bg-blue">Create your link</button>
                 </div>
             </form>
         </div>
-        : <Link data={data} setLink={setLink} />}
+        : <PageLink data={data} setLink={setLink} />}
     </>
 
     )
